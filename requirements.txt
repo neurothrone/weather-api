@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+
+# environment
+python-dotenv
+
+# testing
+httpx
+pytest
+pytest-asyncio
