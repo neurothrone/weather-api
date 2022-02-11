@@ -1,8 +1,11 @@
-from fastapi.responses import RedirectResponse
+import fastapi_jinja
+from fastapi import Request
+from fastapi.responses import HTMLResponse
 
 from . import router
 
 
-@router.get("/")
-async def root():
-    return RedirectResponse("/docs")
+@router.get("/", response_class=HTMLResponse, include_in_schema=False)
+@fastapi_jinja.template("open/index.html")
+async def root(request: Request):
+    return dict(title="FastAPI Asynchronous Weather API Service")
