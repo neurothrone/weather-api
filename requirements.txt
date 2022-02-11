@@ -1,5 +1,10 @@
+# core
 fastapi
+fastapi-jinja
 uvicorn[standard]
+
+jinja2
+aiofiles
 
 # environment
 python-dotenv
