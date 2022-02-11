@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title if title else "Title" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+</head>
+<body>
+
+{% block header %}
+{% endblock %}
+
+<main>
+    {% block page_content %}
+        {% if title %}<h1>{{ title }}</h1>{% endif %}
+    {% endblock %}
+</main>
+
+{% block scripts %}
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>
