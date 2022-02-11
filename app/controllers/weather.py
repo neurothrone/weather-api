@@ -53,12 +53,10 @@ class WeatherController:
                             lat: float = Query(...,
                                                ge=GeoData.MIN_LAT,
                                                le=GeoData.MAX_LAT,
-                                               alias="latitude",
                                                title="Latitude"),
                             lon: float = Query(...,
                                                ge=GeoData.MIN_LON,
                                                le=GeoData.MAX_LON,
-                                               alias="longitude",
                                                title="Longitude"),
                             units: Units = Query(default=Units.METRIC)
                             ) -> WeatherOut:
