@@ -1,8 +1,9 @@
 # core
 fastapi
-fastapi-jinja
 uvicorn[standard]
 
+# static and template files
+fastapi-jinja
 jinja2
 aiofiles
 
