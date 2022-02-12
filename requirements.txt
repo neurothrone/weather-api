@@ -10,6 +10,7 @@ aiofiles
 python-dotenv
 
 # testing
+asgi-lifespan
 httpx
 pytest
 pytest-asyncio
