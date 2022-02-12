@@ -30,6 +30,25 @@ class WeatherController:
         return response
 
     @classmethod
+    async def _get_parsed_data(cls, data: dict, units: Units) -> dict:
+        city = data.get("name")
+        country = data.get("sys").get("country")
+        temperature = f"{data['main']['temp']} {Units.get_symbol(units)}"
+        weather = data["weather"][0]["main"]
+        lon = data["coord"]["lon"]
+        lat = data["coord"]["lat"]
+
+        return dict(
+            city=city,
+            country=country,
+            temperature=temperature,
+            weather=weather,
+            units=units,
+            lon=lon,
+            lat=lat
+        )
+
+    @classmethod
     async def get_by_city(cls,
                           city: str = Query(..., title="Name of the city",
                                             regex="^[A-Za-z]+$"),
@@ -41,12 +60,8 @@ class WeatherController:
         response = await cls._get_weather_response_or_400(
             weather_service.get_weather_by_city, city, state, country, units
         )
-        data: dict = response.json()
-
-        return WeatherOut(
-            city=data.get("name"),
-            country=data.get("sys").get("country"),
-            temperature=f"{data['main']['temp']} {Units.get_symbol(units)}")
+        parsed_data = await cls._get_parsed_data(response.json(), units)
+        return WeatherOut(**parsed_data)
 
     @classmethod
     async def get_by_coords(cls,
@@ -63,11 +78,5 @@ class WeatherController:
         response = await cls._get_weather_response_or_400(
             weather_service.get_weather_by_coords, lat, lon, units
         )
-        data: dict = response.json()
-
-        return WeatherOut(
-            city=data.get("name"),
-            country=data.get("sys").get("country"),
-            temperature=f"{data['main']['temp']} {Units.get_symbol(units)}",
-            lon=data["coord"]["lon"],
-            lat=data["coord"]["lat"])
+        parsed_data = await cls._get_parsed_data(response.json(), units)
+        return WeatherOut(**parsed_data)
