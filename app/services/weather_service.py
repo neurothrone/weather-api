@@ -42,34 +42,3 @@ async def get_weather_by_city(city: str,
         units=units.value
     )
     return await _get_weather(params)
-
-
-""" 
-response.json()
----------------
-{'coord': {'lon': 11.9668, 'lat': 57.7072},
-'weather': [{'id': 803,
-          'main': 'Clouds',
-          'description': 'broken clouds',
-          'icon': '04n'}],
-'base': 'stations',
-'main': {'temp': 276.55,
-      'feels_like': 272.42,
-      'temp_min': 275.07,
-      'temp_max': 278.15,
-      'pressure': 1008,
-      'humidity': 88},
-'visibility': 10000,
-'wind': {'speed': 5.14, 'deg': 220},
-'clouds': {'all': 75},
-'dt': 1644473934,
-'sys': {'type': 2,
-     'id': 2002867,
-     'country': 'SE',
-     'sunrise': 1644476109,
-     'sunset': 1644508662},
-'timezone': 3600,
-'id': 2711537,
-'name': 'Gothenburg',
-'cod': 200}
-"""
