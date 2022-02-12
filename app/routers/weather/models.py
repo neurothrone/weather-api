@@ -35,7 +35,9 @@ class CoordsLocation(LocationBase):
 
 class WeatherOut(BaseModel):
     temperature: str
+    units: Units
     city: str | None = None
     country: str | None = None
+    weather: str | None = None
     lat: float | None = None
     lon: float | None = None
