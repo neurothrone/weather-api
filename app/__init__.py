@@ -19,6 +19,7 @@ def create_app() -> FastAPI:
                    version=settings.PROJECT_VERSION)
 
     configure(_app)
+    register_events(_app)
     register_routers(_app)
 
     return _app
@@ -27,6 +28,13 @@ def create_app() -> FastAPI:
 def configure(_app: FastAPI) -> None:
     fastapi_jinja.global_init(template_folder, auto_reload=True)
     _app.mount("/static", StaticFiles(directory=str(BASE_PATH / "static")), name="static")
+
+
+def register_events(_app: FastAPI) -> None:
+    @_app.on_event("startup")
+    async def on_startup():
+        if settings.DEBUG:
+            print(settings)
 
 
 def register_routers(_app: FastAPI) -> None:
