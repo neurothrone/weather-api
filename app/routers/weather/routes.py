@@ -15,7 +15,7 @@ async def read_weather_by_city(
 
 @router.get("/weather/coords/",
             response_model=WeatherOut)
-async def read_weather_geographic_location(
+async def read_weather_by_coords(
         weather: WeatherOut = Depends(WeatherController.get_by_coords)
 ):
     return weather
