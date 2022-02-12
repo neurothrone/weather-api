@@ -8,4 +8,10 @@ class Units(str, Enum):
 
     @staticmethod
     def get_symbol(units: "Units") -> str:
-        return "C" if units == Units.METRIC else "F"
+        match units:
+            case units.METRIC:
+                return "C"
+            case units.IMPERIAL:
+                return "F"
+            case _:
+                return "K"
