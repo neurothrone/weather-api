@@ -1,0 +1,79 @@
+{% extends "shared/base.html" %}
+
+{% block page_content %}
+    {{ super() }}
+    <h3>Endpoints</h3>
+
+    <ul>
+        <li><strong>Get current weather by city name</strong>
+            <br>
+            <span class="fw-bold text-success">GET</span>&nbsp;
+            <a class="text-decoration-none"
+               href="{{ url_for('read_weather_by_city') }}?city=gothenburg">
+                <span class="fw-bold">/api/1.0/weather/city/?city={city}</span>
+            </a>
+            <br>
+            <span class="fw-bold text-success">GET</span>&nbsp;
+            <a class="text-decoration-none"
+               href="{{ url_for('read_weather_by_city') }}?city=bristol&state=tn&country=us&units=imperial">
+                <span class="fw-bold">/api/1.0/weather/city/?city=bristol&state=tn&country=us&units=imperial</span>
+            </a>
+        </li>
+        <li class="list-unstyled">
+            <br>
+            <strong>Parameters</strong>
+            <ul class="lh-lg">
+                <li>
+                    <span class="param-text fw-bold">Required</span>:
+                    <span class="param-background p-1 rounded text-white opacity-75">city={city}</span>
+                    - <span class="text-muted">the city you want to get the weather at</span>
+                </li>
+                <li>Optional: <span class="param-background p-1 rounded text-white opacity-75">state={state}</span> -
+                    <span class="text-muted">the state of the city (only works for the US, two-letter state code)</span>
+                </li>
+                <li>Optional: <span class="param-background p-1 rounded text-white opacity-75">country={country}</span>
+                    - <span class="text-muted">country (two-letter country code, defaults to US)</span>
+                </li>
+                <li>Optional: <span class="param-background p-1 rounded text-white opacity-75">units={units}</span> -
+                    <span class="text-muted">units of measurement (metric=Celsius, imperial=Fahrenheit, standard=Kelvin,
+                    defaults to metric)</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul>
+        <li><strong>Get current weather by coordinates</strong>
+            <br>
+            <span class="fw-bold text-success">GET</span>&nbsp;
+            <a class="text-decoration-none"
+               href="{{ url_for('read_weather_by_coords') }}?lat=50.4324&lon=30">
+                <span class="fw-bold">/api/1.0/weather/coords/?lat={lat}&lon={lon}</span>
+            </a>
+        </li>
+        <li class="list-unstyled">
+            <br>
+            <strong>Parameters</strong>
+            <ul class="lh-lg">
+                <li><span class="param-text fw-bold">Required</span>: <span
+                        class="param-background p-1 rounded text-white opacity-75">lat={lat}</span> - <span
+                        class="text-muted">the latitude coordinate</span>
+                </li>
+                <li><span class="param-text fw-bold">Required</span>: <span
+                        class="param-background p-1 rounded text-white opacity-75">lon={lon}</span> - <span
+                        class="text-muted">the longitude coordinate</span>
+                </li>
+                <li>Optional: <span class="param-background p-1 rounded text-white opacity-75">units={units}</span> -
+                    <span class="text-muted">units of measurement (metric: Celsius, imperial: Fahrenheit, standard:
+                    Kelvin,
+                    defaults to metric)</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>JSON response</h3>
+    <div class="bg-dark p-3 rounded">
+        <pre class="text-white" id="json-example"></pre>
+    </div>
+{% endblock %}

@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="utf-8">
-    <title>{{ title if title else "Title" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Zaid Neurothrone">
+    {% block head %}{% endblock %}
+    <title>Weather API Service</title>
+    <!-- Brand icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='img/favicon.ico') }}">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='libs/bootstrap/css/bootstrap.min.css') }}">
+    <!-- FontAwesome Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='libs/fontawesome/css/all.min.css') }}">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+    {% block additional_css %}{% endblock %}
+    <!-- Fonts -->
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 
-{% block header %}
-{% endblock %}
-
-<main>
+<!-- Content -->
+<main class="container">
     {% block page_content %}
-        {% if title %}<h1>{{ title }}</h1>{% endif %}
+        <h1 class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <img
+                    src="{{ url_for('static', path='img/icons8-cloud-96.png') }}"
+                    alt="Image of a cloud in gradient color"> Weather API Service
+        </h1>
     {% endblock %}
 </main>
 
+<!-- Footer -->
+{% include "shared/footer.html" %}
+
+<!-- Scripts -->
 {% block scripts %}
+    <!-- Bootstrap Core JS -->
+    <script src="{{ url_for('static', path='libs/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- Custom JS -->
     <script src="{{ url_for('static', path='js/main.js') }}"></script>
 {% endblock %}
 
