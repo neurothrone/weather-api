@@ -1,0 +1,41 @@
+body {
+    background: burlywood;
+}
+
+.footer-heart {
+    color: darkorchid;
+}
+
+.param-text {
+    color: darkorchid !important;
+}
+
+.param-background {
+    background: mediumpurple !important;
+}
+
+
+pre {
+    padding: 5px;
+    margin: 5px;
+}
+
+.string {
+    color: palegreen;
+}
+
+.number {
+    color: orange;
+}
+
+.boolean {
+    color: blue;
+}
+
+.null {
+    color: magenta;
+}
+
+.key {
+    color: palevioletred;
+}
