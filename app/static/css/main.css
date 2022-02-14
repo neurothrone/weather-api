@@ -1,9 +1,7 @@
+/* Body */
+
 body {
     background: burlywood;
-}
-
-.footer-heart {
-    color: darkorchid;
 }
 
 .param-text {
@@ -14,6 +12,11 @@ body {
     background: mediumpurple !important;
 }
 
+.footer-heart {
+    color: darkorchid;
+}
+
+/* JSON response */
 
 pre {
     padding: 5px;
@@ -38,4 +41,46 @@ pre {
 
 .key {
     color: palevioletred;
+}
+
+/* Social Icons */
+
+.fa-globe {
+    color: darkorchid;
+}
+
+.fa-globe:hover {
+    color: mediumpurple;
+}
+
+.fa-gear {
+    color: goldenrod;
+}
+
+.fa-gear:hover {
+    color: gold;
+}
+
+.fa-github {
+    color: white;
+}
+
+.fa-github:hover {
+    color: papayawhip;
+}
+
+.fa-linkedin {
+    color: #0A66C2;
+}
+
+.fa-linkedin:hover {
+    color: cornflowerblue;
+}
+
+.fa-envelope {
+    color: greenyellow;
+}
+
+.fa-envelope:hover {
+    color: palegreen;
 }
