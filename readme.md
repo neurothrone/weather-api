@@ -8,10 +8,12 @@
 
 ## About
 
-A simplistic asynchronous Weather API service powered by [FastAPI][fastapi] that employs the
-[OpenWeather][openweather] API to allow retrieval of current weather by city or coordinates.
+A simplistic asynchronous Weather API that employs the
+[OpenWeather][openweather] API to allow the retrieval of the current weather by city or coordinates.
 
 ## Demo
+
+![Index page of the website](assets/website.png?raw=true "Weather API Service index page")
 
 A working demo can be found at [Heroku][demo].
 
@@ -30,3 +32,9 @@ OPEN_WEATHER_API_KEY=...
 ```sh
 uvicorn run:app
 ```
+
+## Tools
+
+[fastapi]: https://fastapi.tiangolo.com/
+
+- Web framework: [FastAPI][fastapi]
