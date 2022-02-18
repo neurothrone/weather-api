@@ -15,28 +15,28 @@ templates = Jinja2Templates(directory=template_folder)
 
 
 def create_app() -> FastAPI:
-    _app = FastAPI(title=settings.PROJECT_TITLE,
-                   version=settings.PROJECT_VERSION)
+    app = FastAPI(title=settings.PROJECT_TITLE,
+                  version=settings.PROJECT_VERSION)
 
-    configure(_app)
-    register_events(_app)
-    register_routers(_app)
+    configure(app)
+    register_events(app)
+    register_routers(app)
 
-    return _app
+    return app
 
 
-def configure(_app: FastAPI) -> None:
+def configure(app: FastAPI) -> None:
     fastapi_jinja.global_init(template_folder, auto_reload=True)
-    _app.mount("/static", StaticFiles(directory=str(BASE_PATH / "static")), name="static")
+    app.mount("/static", StaticFiles(directory=str(BASE_PATH / "static")), name="static")
 
 
-def register_events(_app: FastAPI) -> None:
-    @_app.on_event("startup")
+def register_events(app: FastAPI) -> None:
+    @app.on_event("startup")
     async def on_startup():
         if settings.DEBUG:
             print(settings)
 
 
-def register_routers(_app: FastAPI) -> None:
-    _app.include_router(open_router)
-    _app.include_router(weather_router, prefix="/api/1.0", tags=["weather"])
+def register_routers(app: FastAPI) -> None:
+    app.include_router(open_router)
+    app.include_router(weather_router, prefix="/api/1.0", tags=["weather"])
