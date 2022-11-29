@@ -8,8 +8,8 @@
 
 ## About
 
-A simplistic asynchronous Weather API that employs the
-[OpenWeather][openweather] API to allow the retrieval of the current weather by city or coordinates.
+An asynchronous Weather API that employs the [OpenWeather][openweather] API to retrieve the current
+weather by city or coordinates.
 
 ## Demo
 
