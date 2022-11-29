@@ -53,14 +53,6 @@ pre {
     color: mediumpurple;
 }
 
-.fa-gear {
-    color: goldenrod;
-}
-
-.fa-gear:hover {
-    color: gold;
-}
-
 .fa-github {
     color: white;
 }
@@ -75,12 +67,4 @@ pre {
 
 .fa-linkedin:hover {
     color: cornflowerblue;
-}
-
-.fa-envelope {
-    color: greenyellow;
-}
-
-.fa-envelope:hover {
-    color: palegreen;
 }
