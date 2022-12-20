@@ -1,21 +1,13 @@
 # Weather API Service
 
-[demo]: https://zn-weather-api.herokuapp.com/
-
-[fastapi]: https://fastapi.tiangolo.com/
-
-[openweather]: https://openweathermap.org/
-
 ## About
 
 An asynchronous Weather API that employs the [OpenWeather][openweather] API to retrieve the current
 weather by city or coordinates.
 
-## Demo
-
 ![Index page of the website](assets/website.png?raw=true "Weather API Service index page")
 
-A working demo can be found at [Heroku][demo].
+[openweather]: https://openweathermap.org/
 
 ## Setup
 
